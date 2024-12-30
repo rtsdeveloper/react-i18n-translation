@@ -1,6 +1,6 @@
 {
   "name": "react-i18n-translation",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "\"react-i18n-translation\" is a lightweight React library designed for internationalization and translation management in React applications. It provides a simple and efficient way to handle multilingual content in React projects.",
   "main": "./src/index.js",
   "files": [

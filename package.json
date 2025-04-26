@@ -1,6 +1,6 @@
 {
   "name": "react-i18n-translation",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "React-i18n-translation is a lightweight, easy-to-use internationalization (i18n) and translation management library for React and Next.js applications. Easily handle multilingual content, language switching, and RTL support in your React projects.",
   "main": "./src/index.js",
   "files": [
@@ -33,12 +33,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/react-i18n-translation.git"
+    "url": "git+https://github.com/rtsdeveloper/react-i18n-translation.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/react-i18n-translation/issues"
+    "url": "https://github.com/rtsdeveloper/react-i18n-translation/issues"
   },
-  "homepage": "https://github.com/yourusername/react-i18n-translation",
+  "homepage": "https://github.com/rtsdeveloper/react-i18n-translation",
   "devDependencies": {
     "@babel/cli": "^7.26.4",
     "@babel/core": "^7.26.0",

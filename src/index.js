@@ -1,7 +1,7 @@
-import { LangProvider } from './context/LangProvider.jsx';
-import LangWrapper from "./wrapper/LangWrapper.jsx";
+import { LangProvider } from './context/LangProvider';
+import LangWrapper from "./wrapper/LangWrapper";
 import useTranslation from "./hooks/useTranslation.js";
-import { LangContext } from "./context/LangProvider.jsx";
+import { LangContext } from "./context/LangProvider";
 
 export {
       LangProvider,

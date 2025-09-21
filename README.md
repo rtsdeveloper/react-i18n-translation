@@ -1,12 +1,12 @@
 # react-i18n-translation
 
-`react-i18n-translation` is a lightweight React library designed for internationalization and translation management in React applications. It provides a simple and efficient way to handle multilingual content in React and Next.js projects.
+`react-i18n-translation` is a lightweight React library designed for internationalization and translation management in React applications. It provides a simple and efficient way to handle multilingual content in React.js projects only.
 
 ---
 
 ## **Features**
 
-- Easy integration with React and Next.js.
+- Easy integration with React.js.
 - Lightweight and simple API.
 - Dynamic language switching.
 - Support for RTL (Right-to-Left) languages.
@@ -27,40 +27,11 @@ yarn add react-i18n-translation
 
 ## **Usage**
 
-### **NextJS Setup**
-
-Wrap your application with the `LangWrapper` to manage the language context:
-
-```jsx
-import { cookies } from "next/headers";
-import { LangWrapper } from "react-i18n-translation";
-
-export const metadata = {
-  title: "Lang Switcher",
-  description: "An example app with language translation",
-};
-
-export default async function RootLayout({ children }) {
-  const cookieStore = await cookies();
-  const initialLang = cookieStore.get("lang")?.value || "en";
-  const dir = initialLang === "ar" ? "rtl" : "ltr";
-
-  return (
-    <html lang={initialLang} dir={dir}>
-      <body>
-        <LangWrapper initialLang={initialLang}>{children}</LangWrapper>
-      </body>
-    </html>
-  );
-}
-```
-
 ### **ReactJS Setup**
 
-Wrap your application with the `LangWrapper` to manage the language context:
+Wrap your main.js file with the `LangWrapper` to manage the language context:
 
 ```jsx
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Cookies from 'js-cookie';
@@ -85,8 +56,6 @@ root.render(
 A component that provides a dropdown for language selection. It automatically updates the language in the context.
 
 ```jsx
-"use client";
-
 import React, { useContext } from "react";
 import { LangContext } from "react-i18n-translation";
 
@@ -119,12 +88,8 @@ Fetch translations using the `useTranslation` hook.
 import React from "react";
 import { useTranslation } from "react-i18n-translation";
 import { langFiles } from "@/translation/langFiles";
-import en from "../translation/en.json";
-import ar from "../translation/ar.json";
 
-export const langFiles = { en, ar };
-
-const Home = () => {
+const App = () => {
   const { t } = useTranslation(langFiles);
 
   return (
@@ -136,7 +101,7 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;
 ```
 
 ---

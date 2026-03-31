@@ -62,9 +62,9 @@ import { LangWrapper } from "react-i18n-translation";
 import { getServerLang } from "react-i18n-translation/next";
 import { langFiles } from "@/translation/langFiles"; // 1. Import your translations!
 
-export default function RootLayout({ children }) {
-  // Reads the cookie naturally on the server, returning "en" or "ar" and the proper text direction
-  const { lang, dir } = getServerLang();
+export default async function RootLayout({ children }) {
+  // Reads the cookie naturally on the server via Next 15+ Async API
+  const { lang, dir } = await getServerLang();
 
   return (
     <html lang={lang} dir={dir}>
@@ -135,6 +135,43 @@ const App = () => {
 };
 
 export default App;
+```
+
+---
+
+### **Next.js Considerations: Server vs Client Components**
+
+By default, the `useTranslation()` hook internally uses React Context, which means it **must run in a Client Component**. 
+
+**1. Translating inside Client Components:**
+Simply add `"use client";` to the top of the file and use the hook normally (No props needed!).
+
+```jsx
+"use client";
+import { useTranslation } from "react-i18n-translation";
+
+export default function Dashboard() {
+  const { t } = useTranslation();
+  return <h1>{t("welcome")}</h1>;
+}
+```
+
+**2. Translating inside Server Components (Async):**
+If you want to keep a component entirely on the server for maximum SEO, you cannot use hooks. Instead, pull the language natively from `getServerLang()`!
+
+```jsx
+import { getServerLang } from "react-i18n-translation/next";
+import { langFiles } from "@/translation/langFiles"; // Import JSON
+
+export default async function ServerProfile() {
+  // Next 15+ uses async for cookies
+  const { lang } = await getServerLang(); 
+  
+  // Directly pull the string using raw javascript!
+  const title = langFiles[lang]?.["profileTitle"] || "Profile";
+
+  return <h1>{title}</h1>;
+}
 ```
 
 ---

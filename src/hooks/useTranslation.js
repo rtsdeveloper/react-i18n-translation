@@ -1,14 +1,16 @@
+"use client";
+
 import { useContext } from "react";
 import { LangContext } from "../context/LangProvider";
 
 const useTranslation = (langFiles) => {
-      const { lang } = useContext(LangContext);
+  const { lang } = useContext(LangContext);
 
-      const t = (key) => {
-            return langFiles[lang]?.[key] || langFiles["en"]?.[key] || key;
-      };
+  const t = (key) => {
+    return langFiles[lang]?.[key] || langFiles["en"]?.[key] || key;
+  };
 
-      return { t };
+  return { t };
 };
 
 export default useTranslation;

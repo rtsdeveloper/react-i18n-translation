@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 export const LangContext = createContext();
 
-export const LangProvider = ({ children, initialLang }) => {
+export const LangProvider = ({ children, initialLang, translations = {} }) => {
   const [lang, setLang] = useState(initialLang);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export const LangProvider = ({ children, initialLang }) => {
   const direction = lang === "ar" ? "rtl" : "ltr";
 
   return (
-    <LangContext.Provider value={{ lang, setLang, direction }}>
+    <LangContext.Provider value={{ lang, setLang, direction, translations }}>
       <div dir={direction}>{children}</div>
     </LangContext.Provider>
   );

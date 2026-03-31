@@ -4,6 +4,10 @@
   "description": "React-i18n-translation is a lightweight, easy-to-use internationalization (i18n) and translation management library for React and Next.js applications. Easily handle multilingual content, language switching, and RTL support in your React projects.",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./next": "./dist/next/index.js"
+  },
   "files": [
     "dist"
   ],

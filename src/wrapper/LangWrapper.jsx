@@ -3,8 +3,8 @@
 import React from "react";
 import { LangProvider } from "../context/LangProvider";
 
-const LangWrapper = ({ children, initialLang }) => {
-  return <LangProvider initialLang={initialLang}>{children}</LangProvider>;
+const LangWrapper = ({ children, initialLang, translations }) => {
+  return <LangProvider initialLang={initialLang} translations={translations}>{children}</LangProvider>;
 };
 
 export default LangWrapper;
